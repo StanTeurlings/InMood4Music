@@ -1,0 +1,26 @@
+{
+  "name": "@in-mood4-music/InMood4Music-api-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@in-mood4-music/InMood4Music-api"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/InMood4Music-api-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@in-mood4-music/InMood4Music-api:build",
+          "@in-mood4-music/InMood4Music-api:serve"
+        ]
+      }
+    }
+  }
+}

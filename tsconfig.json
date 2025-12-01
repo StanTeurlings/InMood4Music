@@ -8,6 +8,33 @@
     },
     {
       "path": "./apps/InMood4Music"
+    },
+    {
+      "path": "./libs/users"
+    },
+    {
+      "path": "./libs/songs"
+    },
+    {
+      "path": "./libs/moods"
+    },
+    {
+      "path": "./libs/genres"
+    },
+    {
+      "path": "./libs/reactions"
+    },
+    {
+      "path": "./libs/auth"
+    },
+    {
+      "path": "./libs/auth"
+    },
+    {
+      "path": "./apps/InMood4Music-api-e2e"
+    },
+    {
+      "path": "./apps/InMood4Music-api"
     }
   ]
 }

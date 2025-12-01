@@ -29,7 +29,15 @@
           "buildDepsName": "build-deps",
           "watchDepsName": "watch-deps"
         }
-      }
+      },
+      "exclude": [
+        "libs/users/*",
+        "libs/songs/*",
+        "libs/moods/*",
+        "libs/genres/*",
+        "libs/reactions/*",
+        "libs/auth/*"
+      ]
     },
     {
       "plugin": "@nx/next/plugin",
@@ -58,6 +66,34 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
+      },
+      "exclude": ["apps/InMood4Music-api-e2e/**/*"]
+    },
+    {
+      "plugin": "@nx/js/typescript",
+      "include": [
+        "libs/users/*",
+        "libs/songs/*",
+        "libs/moods/*",
+        "libs/genres/*",
+        "libs/reactions/*",
+        "libs/auth/*"
+      ],
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        }
+      }
+    },
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps",
+        "serveStaticTargetName": "serve-static"
       }
     }
   ],
