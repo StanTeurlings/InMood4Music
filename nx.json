@@ -36,7 +36,8 @@
         "libs/moods/*",
         "libs/genres/*",
         "libs/reactions/*",
-        "libs/auth/*"
+        "libs/auth/*",
+        "libs/prisma/*"
       ]
     },
     {
@@ -77,7 +78,8 @@
         "libs/moods/*",
         "libs/genres/*",
         "libs/reactions/*",
-        "libs/auth/*"
+        "libs/auth/*",
+        "libs/prisma/*"
       ],
       "options": {
         "typecheck": {
