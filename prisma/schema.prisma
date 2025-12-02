@@ -14,56 +14,59 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  username String @unique
-  email String @unique
+  id           Int        @id @default(autoincrement())
+  username     String     @unique
+  email        String     @unique
   passwordHash String
-  createdAt DateTime @default(now())
-  reactions Reaction[]
+  createdAt    DateTime   @default(now())
+  reactions    Reaction[]
+  songs        Song[]
 }
 
-model Mood{
-  id Int @id @default(autoincrement())
-  name String @unique
+model Mood {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
   reactions Reaction[]
 }
 
 model Song {
-  id Int @id @default(autoincrement())
-  title String
-  artist String
-  url String @unique
+  id          Int         @id @default(autoincrement())
+  userId      Int
+  User        User        @relation(fields: [userId], references: [id])
+  title       String
+  artist      String
+  url         String      @unique
   releaseDate DateTime
-  createdAt DateTime @default(now())
-  reactions Reaction[]
-  genres SongGenre[]
+  createdAt   DateTime    @default(now())
+  reactions   Reaction[]
+  genres      SongGenre[]
 }
 
 model Genre {
-  id Int @id @default(autoincrement())
-  name String @unique
+  id    Int         @id @default(autoincrement())
+  name  String      @unique
   songs SongGenre[]
 }
 
 model Reaction {
-  id Int @id @default(autoincrement())
-  userId Int
-  User User @relation(fields: [userId], references: [id])
-  songId Int
-  Song Song @relation(fields: [songId], references: [id])
-  moodId Int
-  Mood Mood @relation(fields: [moodId], references: [id])
-  score Int
-  comment String?
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  User      User     @relation(fields: [userId], references: [id])
+  songId    Int
+  Song      Song     @relation(fields: [songId], references: [id])
+  moodId    Int
+  Mood      Mood     @relation(fields: [moodId], references: [id])
+  score     Int
+  comment   String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model SongGenre {
-  songId Int
-  Song Song @relation(fields: [songId], references: [id])
+  songId  Int
+  Song    Song  @relation(fields: [songId], references: [id])
   genreId Int
-  Genre Genre @relation(fields: [genreId], references: [id])
+  Genre   Genre @relation(fields: [genreId], references: [id])
 
   @@id([songId, genreId])
 }
