@@ -35,6 +35,9 @@
     },
     {
       "path": "./apps/InMood4Music-api"
+    },
+    {
+      "path": "./libs/prisma"
     }
   ]
 }
