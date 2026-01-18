@@ -7,5 +7,6 @@ import { PrismaModule } from '@in-mood4-music/prisma';
   imports: [PrismaModule],
   controllers: [UsersController],
   providers: [UsersService],
+  exports: [UsersService],
 })
 export class UsersModule {}
