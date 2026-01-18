@@ -49,4 +49,4 @@ out
 
 test-output
 
-/generated/prisma
+/libs/prisma/generated/prisma

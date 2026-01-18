@@ -28,9 +28,6 @@
       "path": "./libs/auth"
     },
     {
-      "path": "./libs/auth"
-    },
-    {
       "path": "./apps/InMood4Music-api-e2e"
     },
     {

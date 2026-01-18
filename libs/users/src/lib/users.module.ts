@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
+import { UsersService } from './users.service';
+import { UsersController } from './users.controller';
+import { PrismaModule } from '@in-mood4-music/prisma';
 
 @Module({
-  controllers: [],
-  providers: [],
-  exports: [],
+  imports: [PrismaModule],
+  controllers: [UsersController],
+  providers: [UsersService],
 })
-export class InMood4MusicUsersModule {}
+export class UsersModule {}
