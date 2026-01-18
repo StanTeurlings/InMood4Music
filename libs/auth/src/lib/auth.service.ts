@@ -31,4 +31,22 @@ export class AuthService {
       access_token: await this.jwtService.signAsync(payload),
     };
   }
+
+  async register(
+    username: string,
+    email: string,
+    password: string
+  ): Promise<{ id: number; username: string }> {
+    const existingUser = await this.usersService.findOne(username);
+    if (existingUser) {
+      throw new UnauthorizedException('Username already taken');
+    }
+    const passwordHash = await bcrypt.hash(password, 10);
+    const newUser = await this.usersService.createUser({
+      username,
+      email,
+      passwordHash,
+    });
+    return { id: newUser.id, username: newUser.username };
+  }
 }
